@@ -19,8 +19,19 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Use select2 gem for select box
+gem 'select2-rails'
+
+# Use Will_paginate gem for pagination
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+
+# Use jquery tubrolinks for support
+gem 'jquery-turbolinks'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -1,0 +1,155 @@
+<article class="content cards-page">
+                    <div class="title-block">
+                        <h3 class="title"> Projects Detail </h3>
+                        <p class="title-description"> Contains information about project </p>
+                    </div>
+                    <section class="section">
+                          <div class="row sameheight-container">
+                                  <div class="col-md-3">
+                                           <div class="card sameheight-item">
+                                               <div class="card-block">
+                                                   <div class="card-title-block">
+                                                       <h3 class="title"> Project details </h3>
+                                                   </div>
+                                                   <section class="section">
+                                                       <ul>
+                                                           <li>Project name: <%=@project.name%></li>
+                                                           <li>Description:<br>
+                                                               <ul>
+                                                                    <li>
+                                                                       <%=@project.description%>
+                                                                    </li>
+                                                               </ul>
+                                                           </li>
+                                                           <li>Member list:<br>
+                                                               <ul>
+                                                                 <li><%=view_user_name(@project.author_id) %> - LEADER</li>
+                                                             <%@project.members.each do |member|%>
+                                                                 <li><%=view_user_name(member.user_id)%> - <%=project_role(member.role_id)%></li>
+                                                             <%end%>
+
+                                                               </ul>
+                                                           </li>
+                                                           <li>Project date:<br>
+                                                               <ul>
+                                                                   <li>Start date: <%=@project.start_time.strftime("%Y-%m-%d")%></li>
+                                                                   <li>End date: <%=@project.end_time.strftime("%Y-%m-%d")%></li>
+                                                               </ul>
+                                                           </li>
+                                                       </ul>
+                                                   </section>
+                                               </div>
+                                           </div>
+                                  </div>
+                                  <div class="col-xl-9">
+                                            <div class="card sameheight-item items" data-exclude="xs,sm,lg">
+                                                <div class="card-header bordered">
+                                                    <div class="header-block">
+                                                        <h3 class="title">
+                                                            Task list
+                                                        </h3>
+                                                        <a href="item-editor.html" class="btn btn-primary btn-sm rounded">
+                                                            Add new
+                                                        </a>
+                                                    </div>
+                                                    <div class="header-block pull-right">
+                                                        <label class="search">
+                                                            <input class="search-input" placeholder="search...">
+                                                            <i class="fa fa-search search-icon"></i>
+                                                        </label>
+                                                        <div class="pagination">
+                                                            <a href="" class="btn btn-primary btn-sm rounded">
+                                                                <i class="fa fa-angle-up"></i>
+                                                            </a>
+                                                            <a href="" class="btn btn-primary btn-sm rounded">
+                                                                <i class="fa fa-angle-down"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <ul class="item-list striped">
+                                                    <li class="item item-list-header hidden-sm-down">
+                                                        <div class="item-row">
+                                                            <div class="item-col item-col-header fixed item-col-img xs"></div>
+                                                            <div class="item-col item-col-header item-col-title">
+                                                                <div>
+                                                                    <span>Name</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-col item-col-header item-col-author">
+                                                                <div class="no-overflow">
+                                                                    <span>Author</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-col item-col-header item-col-author">
+                                                                <div class="no-overflow">
+                                                                    <span>Asignee</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-col item-col-header item-col-author">
+                                                                <div class="no-overflow">
+                                                                    <span>Status</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-col item-col-header item-col-date">
+                                                                <div>
+                                                                    <span>Start date</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-col item-col-header item-col-date">
+                                                                <div>
+                                                                    <span>End date</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item">
+                                                        <div class="item-row">
+                                                            <div class="item-col fixed item-col-img xs">
+                                                                <a href="">
+                                                                    <div class="item-img xs rounded" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg)"></div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item-col item-col-title no-overflow">
+                                                                <div>
+                                                                    <a href="" class="">
+                                                                        <h4 class="item-title no-wrap">
+                                                                            12 Myths Uncovered About IT &amp; Software
+                                                                        </h4>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-col item-col-author">
+                                                                <div class="item-heading">Author</div>
+                                                                <div>TESTABC</div>
+                                                            </div>
+                                                            <div class="item-col item-col-author">
+                                                                <div class="item-heading">Asignee</div>
+                                                                <div>TESTABC</div>
+                                                            </div>
+                                                            <div class="item-col item-col-author">
+                                                                <div class="item-heading">Status</div>
+                                                                <div>TESTABC</div>
+                                                            </div>
+                                                            <div class="item-col item-col-date">
+                                                                <div class="item-heading">Start date</div>
+                                                                <div>
+                                                                    21 SEP 10:45
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-col item-col-date">
+                                                                <div class="item-heading">End date</div>
+                                                                <div>
+                                                                    21 SEP 10:45
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        </div>
+                          </div>
+
+                    </section>
+                </article>
