@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: three
+  project: one
+  role_id: 2
+
+two:
+  user: five
+  project: one
+  role_id: 2
+
+three:
+  user: four
+  project: one
+  role_id: 2
+
+four:
+  user: five
+  project: two
+  role_id: 2

@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString1
+  description: MyString1
+  start_time: 2017-05-22 16:41:49
+  author_id: 298486374
+  end_time: 2017-05-22 16:41:49
+  status: 1
+
+two:
+  name: MyString2
+  description: MyString2
+  author_id: 298486374
+  start_time: 2017-05-22 16:41:49
+  end_time: 2017-05-22 16:41:49
+  status: 1
+
+three:
+  name: MyString3
+  description: MyString3
+  author_id: 298486374
+  start_time: 2017-05-22 16:41:49
+  end_time: 2017-05-22 16:41:49
+  status: 1
+
+four:
+  name: MyString4
+  description: MyString4
+  author_id: 298486374
+  start_time: 2017-05-22 16:41:49
+  end_time: 2017-05-22 16:41:49
+  status: 1
+
+five:
+  name: MyString5
+  description: MyString5
+  author_id: 298486374
+  start_time: 2017-05-22 16:41:49
+  end_time: 2017-05-22 16:41:49
+  status: 1
+
+six:
+  name: MyString6
+  description: MyString6
+  author_id: 298486374
+  start_time: 2017-05-22 16:41:49
+  end_time: 2017-05-22 16:41:49
+  status: 1

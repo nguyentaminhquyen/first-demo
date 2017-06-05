@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
-//= require app
 //= require vendor
+//= require jquery.turbolinks
+//= require turbolinks
+//= require turbolinks-compatibility
+//= require app
+//= require select2
+//= require bootstrap-datepicker.min
 //= require_tree .

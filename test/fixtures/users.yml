@@ -1,13 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  name: MyString
-  password: MyString
-  type_id: 1
+  email: 'nguyen_ta_minh_quyen@ca-adv.co.jp'
+  name: 'Nguyen Ta Minh Quyen'
+  password: '12345678'
+  role_id: 1
 
 two:
-  email: MyString
-  name: MyString
-  password: MyString
-  type_id: 1
+  email: 'ha_hai_dang@ca-adv.co.jp'
+  name: 'Ha Hai Dang'
+  password: '87654321'
+  role_id: 1
+
+three:
+  email: 'luong_ngoc_huy_thanh@ca-adv.co.jp'
+  name: 'Luong Ngoc Huy Thanh'
+  password: '12345678'
+  role_id: 2
+
+four:
+  email: 'nguyen_quang_vinh@ca-adv.co.jp'
+  name: 'Nguyen Quang Vinh'
+  password: '12345678'
+  role_id: 2
+
+five:
+  email: 'vo_ngoc_duy_bao@ca-adv.co.jp'
+  name: 'Vo Ngoc Duy Bao'
+  password: '12345678'
+  role_id: 2

@@ -1,0 +1,64 @@
+
+<article class="content item-editor-page">
+                    <div class="title-block">
+                        <h3 class="title"> Update project information<span class="sparkline bar" data-type="bar"></span> </h3>
+                    </div>
+                    <%= form_for @project, url: {action: "update"} do |f| %>
+                        <div class="card card-block">
+                            <div class="form-group row"> <label class="col-sm-2 form-control-label text-xs-right">
+				Name:
+			</label>
+                                <div class="col-sm-10"> <%=f.text_field :name, :class => "form-control boxed"%>
+                                </div>
+                            </div>
+                            <div class="form-group row"> <label class="col-sm-2 form-control-label text-xs-right">
+				Description:
+			</label>
+                                <div class="col-sm-10">
+                                    <!--<div class="wyswyg">-->
+
+                                        <!-- Create the editor container -->
+                                        <!--<div class="editor"> Hello World </div>-->
+                                   <!--</div> -->
+                                   <%=f.text_area :description, :class => "form-control boxed"%>
+                                </div>
+                            </div>
+                            <div class="form-group row"> <label class="col-sm-2 form-control-label text-xs-right">
+				Member list:
+			</label>
+                                <div class="col-sm-10">
+                                        <%= f.select :user_ids, @user_list.map{ |u| [u.name, u.id]}, {},:class => "form-control boxed",:selected => @project[:user_ids] ,multiple: true %>
+                                        <%= hidden_field_tag "project[user_ids][]", nil %>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+
+                                 <label class="col-sm-2 form-control-label text-xs-right">
+                	        Start date:
+                	 </label>
+                                 <div class="col-sm-3">
+                                       <%= f.text_field :start_time, :class => "form-control boxed datepicker",autocomplete: "off"%>
+                                 </div>
+
+                            </div>
+                            <div class="form-group row">
+                                 <label class="col-sm-2 form-control-label text-xs-right">
+                	        End date:
+                	 </label>
+                                 <div class="col-sm-3">
+                                       <%= f.text_field :end_time, :class => "form-control boxed datepicker",autocomplete: "off"%>
+                                       <!--<input type="text" class="form-control boxed" id="endDate" name="end_date" placeholder="" data-provide="datepicker">-->
+                                 </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10 col-sm-offset-2"> <!--<button type="submit" class="btn btn-primary">
+					                   Submit
+				                    </button> -->
+                                    <%= f.submit "Update", :class => "btn btn-primary"%>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                    <%= javascript_include_tag 'common/form' %>
+                </article>
