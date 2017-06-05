@@ -27,7 +27,6 @@ class ProjectsController < ApplicationController
     @project.status = 1
 		@project.start_time = DateTime.strptime(project_param[:start_time],'%Y-%m-%d')
     @project.end_time = DateTime.strptime(project_param[:end_time],'%Y-%m-%d')
-    @project.members.role_id = 2
     if @project.save
       redirect_to '/projects'
     end
