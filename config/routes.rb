@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root :to => "projects#index"
 
+
 	#User functions
   get "/login", :to => "user#login"
   get "/signup", :to => "user#signup"
@@ -16,9 +17,17 @@ Rails.application.routes.draw do
   get "/projects/:id", :to => "projects#show"
   get "/projects/delete/:id", :to => "projects#delete"
 
+	#Task functions
+	get '/tasks/new'
+  get '/tasks/:id', :to => "tasks#show"
+	get '/tasks/edit/:id', :to => "tasks#edit"
+	get '/tasks/delete/:id', :to => "tasks#delete"
+
+  resources :projects
+  resources :tasks
+
   # Error Handling route
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :projects
 end

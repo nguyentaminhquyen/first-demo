@@ -38,9 +38,10 @@ ActiveRecord::Schema.define(version: 20170530061230) do
     t.bigint "project_id"
     t.string "name"
     t.string "description"
-    t.bigint "asginee_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.bigint "assignner_id"
+    t.integer "status"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_tasks_on_project_id"

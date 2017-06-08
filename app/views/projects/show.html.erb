@@ -1,6 +1,6 @@
 <article class="content cards-page">
                     <div class="title-block">
-                        <h3 class="title"> Projects Detail </h3>
+                        <h3 class="title"> Project Detail </h3>
                         <p class="title-description"> Contains information about project </p>
                     </div>
                     <section class="section">
@@ -23,7 +23,7 @@
                                                            </li>
                                                            <li>Member list:<br>
                                                                <ul>
-                                                                 <li><%=view_user_name(@project.author_id) %> - LEADER</li>
+                                                                 <li><%=view_user_name(@project.author_id) %> - <%=project_role(1)%></li>
                                                              <%@project.members.each do |member|%>
                                                                  <li><%=view_user_name(member.user_id)%> - <%=project_role(member.role_id)%></li>
                                                              <%end%>
@@ -48,29 +48,25 @@
                                                         <h3 class="title">
                                                             Task list
                                                         </h3>
-                                                        <a href="item-editor.html" class="btn btn-primary btn-sm rounded">
+                                                        <a href="/tasks/new" class="btn btn-primary btn-sm rounded">
                                                             Add new
                                                         </a>
                                                     </div>
                                                     <div class="header-block pull-right">
-                                                        <label class="search">
-                                                            <input class="search-input" placeholder="search...">
-                                                            <i class="fa fa-search search-icon"></i>
-                                                        </label>
-                                                        <div class="pagination">
+                                                        <%= will_paginate @task_list, :page_links => false %>
+                                                        <!--<div class="pagination">
                                                             <a href="" class="btn btn-primary btn-sm rounded">
                                                                 <i class="fa fa-angle-up"></i>
                                                             </a>
                                                             <a href="" class="btn btn-primary btn-sm rounded">
                                                                 <i class="fa fa-angle-down"></i>
                                                             </a>
-                                                        </div>
+                                                        </div>-->
                                                     </div>
                                                 </div>
                                                 <ul class="item-list striped">
                                                     <li class="item item-list-header hidden-sm-down">
                                                         <div class="item-row">
-                                                            <div class="item-col item-col-header fixed item-col-img xs"></div>
                                                             <div class="item-col item-col-header item-col-title">
                                                                 <div>
                                                                     <span>Name</span>
@@ -104,46 +100,62 @@
                                                         </div>
                                                     </li>
                                                     <li class="item">
+                                                        <%@task_list.each do |task| %>
                                                         <div class="item-row">
-                                                            <div class="item-col fixed item-col-img xs">
-                                                                <a href="">
-                                                                    <div class="item-img xs rounded" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg)"></div>
-                                                                </a>
-                                                            </div>
                                                             <div class="item-col item-col-title no-overflow">
                                                                 <div>
-                                                                    <a href="" class="">
+                                                                    <a href="<%="/tasks/#{task.id}"%>">
                                                                         <h4 class="item-title no-wrap">
-                                                                            12 Myths Uncovered About IT &amp; Software
+                                                                            <%= task.name%>
                                                                         </h4>
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                             <div class="item-col item-col-author">
                                                                 <div class="item-heading">Author</div>
-                                                                <div>TESTABC</div>
+                                                                <div><%= view_user_name(task.assignner_id)%></div>
                                                             </div>
                                                             <div class="item-col item-col-author">
                                                                 <div class="item-heading">Asignee</div>
-                                                                <div>TESTABC</div>
+                                                                <div class="no-overflow"><%= view_user_name(task.user_id) %></div>
                                                             </div>
                                                             <div class="item-col item-col-author">
                                                                 <div class="item-heading">Status</div>
-                                                                <div>TESTABC</div>
+                                                                <div class="no-overflow"><%= task_status(task.status) %></div>
                                                             </div>
                                                             <div class="item-col item-col-date">
                                                                 <div class="item-heading">Start date</div>
-                                                                <div>
-                                                                    21 SEP 10:45
+                                                                <div class="no-overflow">
+                                                                    <%= task.start_time.strftime('%v')%>
                                                                 </div>
                                                             </div>
                                                             <div class="item-col item-col-date">
                                                                 <div class="item-heading">End date</div>
-                                                                <div>
-                                                                    21 SEP 10:45
+                                                                <div class="no-overflow">
+                                                                    <%= task.end_time.strftime('%v')%>
                                                                 </div>
                                                             </div>
+                                                            <div class="item-col fixed item-col-actions-dropdown">
+                                                                <div class="item-actions-dropdown">
+                                                                    <a class="item-actions-toggle-btn"> <span class="inactive">
+                                                                         <i class="fa fa-cog"></i>
+                                                                         </span> <span class="active">
+                                                                         <i class="fa fa-chevron-circle-right"></i>
+                                                                    </span> </a>
+                                                                    <div class="item-actions-block">
+                                                                          <ul class="item-actions-list">
+                                                                                <li>
+                                                                                     <a class="remove" href="<%="/tasks/delete/#{task.id}"%>"> <i class="fa fa-trash-o "></i> </a>
+                                                                                </li>
+                                                                                <li>
+                                                                                     <a class="edit" href="<%="/tasks/edit/#{task.id}"%>"> <i class="fa fa-pencil"></i> </a>
+                                                                                </li>
+                                                                          </ul>
+                                                                    </div>
+                                                                 </div>
+                                                            </div>
                                                         </div>
+                                                        <%end%>
                                                     </li>
                                                 </ul>
                                             </div>

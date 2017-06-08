@@ -5,9 +5,10 @@ class CreateTasks < ActiveRecord::Migration[5.1]
       t.references :project, foreign_key: true
       t.string :name
       t.string :description
-      t.bigint :asginee_id
-      t.datetime :start_date
-      t.datetime :end_date
+      t.bigint :assignner_id
+      t.integer :status
+      t.datetime :start_time
+      t.datetime :end_time
 
       t.timestamps
     end
