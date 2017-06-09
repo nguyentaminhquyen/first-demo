@@ -8,6 +8,7 @@ class TasksController < ApplicationController
   end
 
   def create
+		@page_name = "Create new task"
     @task = current_project.tasks.new(task_params)
     @task.assignner_id = current_user.id
     @task.start_time = DateTime.strptime(task_params[:start_time],'%Y-%m-%d')
@@ -17,7 +18,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def show
+    @page_name = "Task detail"
+  end
+
 	def edit
+    @page_name = "Edit task detail"
     render 'edit'
 	end
 

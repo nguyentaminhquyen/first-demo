@@ -1,0 +1,53 @@
+<article class="content cards-page">
+    <div class="title-block">
+        <h3 class="title">
+            <span><a href="<%=back_to_project_detail_page%>"><i class="fa fa-arrow-circle-left"></i></a></span> Task Detail
+        </h3>
+        <p class="title-description">
+            Contains information about task
+        </p>
+    </div>
+    <section class="section">
+        <div class="row sameheight-container">
+                <div class="card sameheight-item">
+                    <div class="card-block">
+                        <div class="card-title-block">
+                            <h3 class="title">
+                                Task details
+                            </h3>
+                        </div>
+                        <section class="section">
+                            <ul>
+                                <li>Task name:
+                                    <%=@task.name%></li>
+                                <li>Description:<br>
+                                    <ul>
+                                        <li>
+                                            <%=@task.description%>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Member list:<br>
+                                    <ul>
+                                        <li><%=view_user_name(@task.assignner_id) %>
+                                            -
+                                            ASSIGNER</li>
+                                        <li><%=view_user_name(@task.user_id) %>
+                                            -
+                                            ASSIGNEE</li>
+                                    </ul>
+                                </li>
+                                <li>Project date:<br>
+                                    <ul>
+                                        <li>Start date:
+                                            <%=@task.start_time.strftime("%Y-%m-%d")%></li>
+                                        <li>End date:
+                                            <%=@task.end_time.strftime("%Y-%m-%d")%></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+            </div>
+        </section>
+    </article>

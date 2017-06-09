@@ -1,19 +1,26 @@
 class ProjectsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:search_by_name]
   before_action :authorize
   before_action :set_project, only: [:show, :edit, :update, :delete]
   layout 'projects/dashboard'
+
   def index
+    @page_name = "Dashboard"
     @current_page = "index"
   end
 
 	def projects_list
+    @page_name = "Project list"
     @current_page = "projects"
-    @projects = Project.where(author_id: current_user.id).order(:name).paginate(:page => params[:page],:per_page => 3)
+    if params[:proj_name].present?
+      @projects = Project.search(current_user.id,params[:proj_name],params[:page])
+    else
+      @projects = Project.get_projects_by_user(current_user.id,params[:page])
+    end
 	end
 
-
-
   def new
+    @page_name = "Create new project"
     @project = Project.new
     @user_list = User.where.not(id: current_user.id)
   end
@@ -30,10 +37,12 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @current_page = "Edit project"
     @user_list = User.where.not(id: current_user.id)
   end
 
   def update
+    @page_name = "Edit project details"
     @project.start_time = DateTime.strptime(project_param[:start_time],'%Y-%m-%d')
     @project.end_time = DateTime.strptime(project_param[:end_time],'%Y-%m-%d')
     if @project.update(project_param)
@@ -49,6 +58,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+    @page_name = "Project detail"
 		session[:proj_id] = @project.id
     @task_list = @project.tasks.order(:name).paginate(:page => params[:page],:per_page => 3)
 		render 'show'
